@@ -11,7 +11,7 @@ int main(int argc, char** argv) {
     int friend1{}, friend2{};
     std::cin >> friend1 >> friend2;
 
-    int valor{ 0 }, x{ 0 }, y{ 0 };
+    int valor{ 0 };
     
     // check friend 1
 

@@ -1,24 +1,28 @@
 #include <iostream>
 
-int main(int argc, char** argv) {
-    int D{}, A{}, N{};
-    int valorTotal{ 0 };
+struct Hotel {
+    int D; // valor da diária
+    int A; // taxa da diária por dia
+    int N; // dia da chegada do hospede
+    int V; // valor total a pagar
+} hotel;
 
+int main(int argc, char** argv) {
     const unsigned short DAYS_IN_JULY{ 31 };
 
-    std::cin >> D >> A >> N;
+    std::cin >> hotel.D >> hotel.A >> hotel.N;
 
-    int diarias{ DAYS_IN_JULY - N + 1 };
+    int diarias{ DAYS_IN_JULY - hotel.N + 1 };
 
-    if ((N >= 1) && (N <= 15)) {
-        valorTotal = D + (A * (N - 1));
-        valorTotal = valorTotal * diarias;
+    if ((hotel.N >= 1) && (hotel.N <= 15)) {
+        hotel.V = hotel.D + (hotel.A * (hotel.N - 1));
+        hotel.V *= diarias;
     } 
     else {
-        valorTotal = D + (A * 14);
-        valorTotal = valorTotal * diarias;
+        hotel.V = hotel.D + (hotel.A * 14);
+        hotel.V *= diarias;
     }
 
-    std::cout << valorTotal << '\n';
+    std::cout << hotel.V << '\n';
     return 0;
 }
